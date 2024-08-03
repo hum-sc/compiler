@@ -1,0 +1,27 @@
+declara
+dato n, i, j, espacio -> numerico
+fin_declara
+
+comienza
+escribe("Introduce el numero de filas para la piramide: ");
+lee(n);
+
+i <- 1;
+repite
+    espacio <- n - i;
+    repite
+        escribe(" ");
+        espacio <- espacio - 1;
+    hasta(espacio < 0);
+    
+    j <- 1;
+    repite
+        escribe("* ");
+        j <- j + 1;
+    hasta(j > i);
+    
+    escribe_ret(" ");
+    i <- i + 1;
+hasta(i > n);
+
+termina

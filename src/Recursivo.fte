@@ -1,0 +1,26 @@
+declara
+dato x,w -> numerico
+dato suma ->numerico
+dato pedro -> cadena
+fin_declara
+
+comienza
+escribe(pot(4,3)*factorial(5)); // 64*120=7680
+termina
+
+funciones
+funcion numerico factorial(numerico x)
+si(x=0)entonces
+factorial <- 1;
+otro_caso
+factorial <- x*factorial(x-1);
+fin_si;
+fin_funcion
+funcion numerico pot(numerico base, numerico exp)
+si(exp=0)entonces
+pot <- 1;
+otro_caso
+pot <- base*pot(base,exp-1);
+fin_si;
+fin_funcion
+FIN_FUNCIONES

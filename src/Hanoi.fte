@@ -1,0 +1,141 @@
+declara
+    dato n, nosirve, p, i -> numerico
+    dato ax[10],bx[10],cx[10]->numerico
+    dato ta, tb, tc -> numerico
+    dato a, b, c -> numerico
+fin_declara
+
+comienza
+    p <- 1;
+    escribe("Dame el numero de discos: ");
+    lee(n);
+    nosirve <- llena_varas(n);
+    nosirve <- despliega(n);
+    a <- 1;
+    b <- 2;
+    c <- 3;
+    nosirve <- hanoi(n,a,b,c);
+termina
+
+funciones
+    funcion numerico hanoi(numerico m, numerico x, numerico w, numerico z)
+    si(m=1)entonces
+    nosirve <- pasa(x,w);
+    p <- p + 1;
+    otro_caso
+    m <- m-1;
+    nosirve <- hanoi(m,x,z,w);
+    nosirve <- pasa(x,w);
+    p <- p + 1;
+    nosirve <- hanoi(m,z,w,x);
+    FIN_SI;
+    hanoi <- 0;
+    FIN_FUNCION
+
+    funcion numerico llena_varas(numerico n)
+    ta <- n;
+    tb <- 0;
+    tc <- 0;
+    i <- 1.0;
+    repite
+    ax[n]<-i;
+    bx[n]<-0;
+    cx[n]<-0;
+    n <- n-1;
+    i <- i + 1;
+    hasta(n<=0);
+    llena_varas<-0;
+    fin_funcion
+
+    funcion numerico despliega(numerico n)
+    repite
+        si(ax[n]<>0)entonces
+            escribe(ax[n]);
+        otro_caso
+            escribe(" ");
+        fin_si;
+        escribe("     ");
+        si(bx[n]<>0)entonces
+            escribe(bx[n]);
+        otro_caso
+            escribe(" ");
+        fin_si;
+        escribe("     ");
+        si(cx[n]<>0)entonces
+            escribe_ret(cx[n]);
+        otro_caso
+            escribe_ret(" ");
+        fin_si;
+        n <- n-1;
+    hasta(n<=0);
+    escribe("A");
+    escribe("     ");
+    escribe("B");
+    escribe("     ");
+    escribe_ret("C");
+    escribe_ret("Presione <enter>");
+    lee(nosirve);
+    despliega <- 0;
+    fin_funcion
+
+    funcion numerico pasa(numerico x, numerico k)
+        escribe(p);
+        escribe(" ");
+        escribe("Pasar disco de ");
+        escribe(nom_col(x));
+        escribe(" a ");
+        escribe_ret(nom_col(k));
+
+        si(x=1)entonces
+            si(k=2)entonces
+                tb <- tb + 1;
+                bx[tb] <- ax[ta];
+            otro_caso
+                si(k=3)entonces
+                    tc <- tc + 1;
+                    cx[tc] <- ax[ta];
+                fin_si;
+            fin_si;
+            ax[ta] <- 0;
+            ta <- ta - 1;
+        otro_caso
+            si(x=2)entonces
+                si(k=1)entonces
+                    ta <- ta + 1;
+                    ax[ta] <- bx[tb];
+                otro_caso
+                    si(k=3)entonces
+                        tc <- tc + 1;
+                        cx[tc] <- bx[tb];
+                    fin_si;
+                fin_si;
+                bx[tb] <- 0;
+                tb <- tb - 1;
+            otro_caso
+                si(k=1)entonces
+                    ta <- ta + 1;
+                    ax[ta] <- cx[tc];
+                otro_caso
+                    si(k=2)entonces
+                        tb <- tb + 1;
+                        bx[tb] <- cx[tc];
+                    fin_si;
+                fin_si;
+                cx[tc] <- 0;
+                tc <- tc - 1;
+            fin_si;
+        fin_si;
+        pasa <- despliega(n);
+    fin_funcion
+    funcion cadena nom_col(numerico x)
+        si(x=1)entonces
+            nom_col <- "Columna A";
+        otro_caso
+            si(x=2)entonces
+                nom_col <- "Columna B";
+            otro_caso
+                nom_col <- "Columna C";
+            fin_si;
+        fin_si;
+    fin_funcion
+FIN_FUNCIONES

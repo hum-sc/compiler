@@ -1,0 +1,30 @@
+declara
+dato n, i -> numerico
+dato resultado -> cadena
+fin_declara
+
+comienza
+n <- 100;  //El limite superior para FizzBuzz
+i <- 1;
+
+repite
+
+	si(i mod 3 = 0 y i mod 5 = 0) entonces
+		escribe_ret("FizzBuzz");
+	otro_caso
+		si(i mod 3 = 0) entonces
+			escribe_ret("Fizz");
+		otro_caso
+			si(i mod 5 = 0) entonces
+				escribe_ret("Buzz");
+			otro_caso
+				escribe_ret(i);
+			fin_si;
+		fin_si;
+	fin_si;
+	
+i <- i + 1;
+hasta(i > n);
+
+
+termina

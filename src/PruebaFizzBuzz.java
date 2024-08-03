@@ -1,0 +1,95 @@
+import java.io.*;
+
+public class PruebaFizzBuzz {
+
+	static String inst[]=new String[80];
+	static String trace="";
+	static String line="0";
+
+	public static void main(String[] args){
+		if(args.length>0) trace=args[0];
+		if(args.length==2) line=args[1];
+		inst[0]="mete 0";
+		inst[1]="mete 100";
+		inst[2]="asig";
+		inst[3]="mete 1";
+		inst[4]="mete 1";
+		inst[5]="asig";
+		inst[6]="mete 1";
+		inst[7]="mem";
+		inst[8]="mete 3";
+		inst[9]="opmod";
+		inst[10]="mete 0";
+		inst[11]="opdif";
+		inst[12]="opnot";
+		inst[13]="mete 1";
+		inst[14]="mem";
+		inst[15]="mete 5";
+		inst[16]="opmod";
+		inst[17]="mete 0";
+		inst[18]="opdif";
+		inst[19]="opnot";
+		inst[20]="opand";
+		inst[21]="mete 58";
+		inst[22]="irverdad";
+		inst[23]="mete 1";
+		inst[24]="mem";
+		inst[25]="mete 3";
+		inst[26]="opmod";
+		inst[27]="mete 0";
+		inst[28]="opdif";
+		inst[29]="opnot";
+		inst[30]="mete 52";
+		inst[31]="irverdad";
+		inst[32]="mete 1";
+		inst[33]="mem";
+		inst[34]="mete 5";
+		inst[35]="opmod";
+		inst[36]="mete 0";
+		inst[37]="opdif";
+		inst[38]="opnot";
+		inst[39]="mete 46";
+		inst[40]="irverdad";
+		inst[41]="mete 1";
+		inst[42]="mem";
+		inst[43]="escribenl";
+		inst[44]="mete 48";
+		inst[45]="ira";
+		inst[46]="mete Buzz";
+		inst[47]="escribenl";
+		inst[48]="copia";
+		inst[49]="saca";
+		inst[50]="mete 54";
+		inst[51]="ira";
+		inst[52]="mete Fizz";
+		inst[53]="escribenl";
+		inst[54]="copia";
+		inst[55]="saca";
+		inst[56]="mete 60";
+		inst[57]="ira";
+		inst[58]="mete FizzBuzz";
+		inst[59]="escribenl";
+		inst[60]="copia";
+		inst[61]="saca";
+		inst[62]="mete 1";
+		inst[63]="mete 1";
+		inst[64]="mem";
+		inst[65]="mete 1";
+		inst[66]="opsum";
+		inst[67]="asig";
+		inst[68]="mete 1";
+		inst[69]="mem";
+		inst[70]="mete 0";
+		inst[71]="mem";
+		inst[72]="opdif";
+		inst[73]="copia";
+		inst[74]="opabs";
+		inst[75]="opsum";
+		inst[76]="mete 6";
+		inst[77]="irfalso";
+		inst[78]="fin";
+		inst[79]="fin";
+		MaqCAPJava.programa(inst,args);
+	}
+
+}

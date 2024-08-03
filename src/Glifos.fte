@@ -1,0 +1,190 @@
+declara
+    dato clave[125], datos[125] -> numerico
+    dato ts, tc, ii, if, rc, r -> numerico
+    dato canena[100], subcad[100] -> numerico
+    dato NLL, NLD, cC -> numerico
+    dato x -> numerico
+    dato nosirve -> numerico
+    dato caracter -> numerico
+    dato letras[122] -> cadena
+    dato tmp -> cadena
+fin_declara
+
+comienza
+    x <- 1;
+    mientras (x <= 125)
+        clave[x] <- 0;
+        datos[x] <- 0;
+        x <- x + 1;
+    fin_mientras;
+    x <- 1;
+    mientras (x <= 100)
+        canena[x] <- 0;
+        subcad[x] <- 0;
+        x <- x + 1;
+    fin_mientras;
+    x <- 1;a
+    mientras (x <= 122)
+        letras[x] <- 0;
+        x <- x + 1;
+    fin_mientras;
+
+    letras[65] <- "A";
+    letras[66] <- "B";
+    letras[67] <- "C";
+    letras[68] <- "D";
+    letras[69] <- "E";
+    letras[70] <- "F";
+    letras[71] <- "G";
+    letras[72] <- "H";
+    letras[73] <- "I";
+    letras[74] <- "J";
+    letras[75] <- "K";
+    letras[76] <- "L";
+    letras[77] <- "M";
+    letras[78] <- "N";
+    letras[79] <- "O";
+    letras[80] <- "P";
+    letras[81] <- "Q";
+    letras[82] <- "R";
+    letras[83] <- "S";
+    letras[84] <- "T";
+    letras[85] <- "U";
+    letras[86] <- "V";
+    letras[87] <- "W";
+    letras[88] <- "X";
+    letras[89] <- "Y";
+    letras[90] <- "Z";
+    letras[97] <- "a";
+    letras[98] <- "b";
+    letras[99] <- "c";
+    letras[100] <- "d";
+    letras[101] <- "e";
+    letras[102] <- "f";
+    letras[103] <- "g";
+    letras[104] <- "h";
+    letras[105] <- "i";
+    letras[106] <- "j";
+    letras[107] <- "k";
+    letras[108] <- "l";
+    letras[109] <- "m";
+    letras[110] <- "n";
+    letras[111] <- "o";
+    letras[112] <- "p";
+    letras[113] <- "q";
+    letras[114] <- "r";
+    letras[115] <- "s";
+    letras[116] <- "t";
+    letras[117] <- "u";
+    letras[118] <- "v";
+    letras[119] <- "w";
+    letras[120] <- "x";
+    letras[121] <- "y";
+    letras[122] <- "z";
+
+    NLL <- 0;
+    NLD <- 0;
+    cC <- 0;
+    lee(ts);
+    escribe_ret("ts leido");
+    lee(tc);
+    escribe_ret("tc leido");
+    nosirve <- leecad();
+    nosirve <- leesubcad();
+    x <- 1;
+    repite
+       caracter <- canena[x];
+       si ( clave[caracter] = 0 ) entonces
+           NLL <- NLL + 1;
+       fin_si;
+       clave[caracter] <- clave[caracter] + 1;
+       x <- x + 1;
+    hasta(x>ts);
+
+
+    x <- 1;
+    repite
+       caracter <- canena[x];
+       nosirve <- meter(caracter);
+    hasta(x>ts);
+
+    si ( NLL = NLD ) entonces
+        cC <- cC + 1;
+    fin_si;
+
+    ii <- 1;
+    if <- ts;
+    mientras (if<tc)
+        caracter <- canena[x];
+        nosirve <- sacar(caracter);
+        ii <- ii + 1;
+        if <- if + 1;
+        caracter <- canena[x];
+        nosirve <- meter(caracter);
+        si ( NLL = NLD ) entonces
+            cC <- cC + 1;
+        fin_si;
+    fin_mientras;
+
+    escribe(cC);
+termina
+
+funciones
+    funcion numerico meter(numerico valor)
+        si ( clave[valor] <> 0 ) entonces
+            si ( clave[valor] = datos[valor] ) entonces
+                NLD <- NLD - 1;
+            fin_si;
+            datos[valor] <- datos[valor] + 1;
+            si ( clave[valor] = datos[valor] ) entonces
+                NLD <- NLD + 1;
+            fin_si;
+        fin_si;
+        meter <- 0;
+    fin_funcion
+
+    funcion numerico leecad()
+        escribe_ret("leecad");
+        x <- 1;
+        escribe_ret(x);
+        canena[x] <- 1;
+        escribe("leyendo cadena[ ");
+        escribe(x);
+        escribe_ret(" ]");
+        lee(tmp);
+        mientras (tmp <> " " y x < 100)
+
+            x <- x + 1;
+            escribe("leyendo cadena[ ");
+            escribe(x);
+            escribe_ret(" ]");
+            lee(tmp);
+        fin_mientras;
+        leecad <- 0;
+    fin_funcion
+
+    funcion numerico leesubcad()
+        escribe_ret("leesubcad");
+        x <- 1;
+        subcad[x] <- 1;
+        mientras (subcad[x] <> 0 y x <= 100)
+            lee(subcad[x]);
+            x <- x + 1;
+        fin_mientras;
+        leesubcad <- 0;
+    fin_funcion
+
+
+    funcion numerico sacar(numerico valor)
+        si ( clave[valor] <> 0 ) entonces
+            si ( clave[valor] = datos[valor] ) entonces
+                NLD <- NLD - 1;
+            fin_si;
+            datos[valor] <- datos[valor] - 1;
+            si ( clave[valor] = datos[valor] ) entonces
+                NLD <- NLD + 1;
+            fin_si;
+        fin_si;
+        sacar <- 0;
+    fin_funcion
+FIN_FUNCIONES
